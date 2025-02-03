@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/index.css */
+body {
+    background-color:rgba(9,18,34,255); /* Dark blue color */
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Optional: set your default font */
+  }
+  
