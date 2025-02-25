@@ -6,34 +6,34 @@ import img4 from "../assets/CardimgAbout4.png";
 
 const DomainExpertise = () => {
   const stats = [
-    { value: '200+', label: 'Customers worldwide' },
-    { value: '25+', label: 'Years on NASDAQ: NTWK' },
-    { value: '350+', label: 'Successful implementations' },
+    { value: '70+', label: 'Successful projects delivered' },
+    { value: '2+', label: 'Years of industry experience' },
+    { value: 'End-to-End', label: 'Web & App Development Solutions' },
   ];
 
   const highlights = [
     {
       title: 'Committed to quality excellence',
       description:
-        'To ensure its offerings are compliant with various international quality standards, Web Elo meticulously adheres to various quality stipulations issued by quality ensuring authorities. The highest internationally recognized quality assurance standard for enhancing software development processes. In addition, the company successfully achieved both SOC 2 Type 1 and SOC 2 Type 2 compliance, demonstrating the company’s continued dedication to safeguarding the data of its clients and their customers.',
+        'Webelo is committed to providing secure, scalable, and high-quality solutions that adhere to industry best practices. We integrate latest technologies, AI-driven automation, and data security protocols to ensure reliability and compliance. Our dedicated support ensures seamless performance at every stage.',
       bgImage: img1,
     },
     {
-      title: 'Pioneers in the industry',
+      title: 'Pioneers in Web & AI-Driven Solutions',
       description:
-        'We are proud to be the first to introduce a full suite of mobile-enabled digital transformation solutions for the global asset finance and leasing industry (formerly NFS Digital). Web Elo also pioneered the world’s first marketplace of AI-driven products for the global credit, finance, and leasing industry (formerly Appex Now).',
+        'At Webelo, we take pride in pushing the boundaries of web development, AI-powered automation, and digital transformation. From pioneering next-gen web applications to delivering high-performance SEO and cloud solutions, our expertise empowers businesses to thrive in the ever-evolving digital world.',
       bgImage: img2,
     },
     {
-      title: 'Ensured service levels',
+      title: 'Excellence in Service & Performance',
       description:
-        'We have received various awards and recognition for the quality of our solutions and services over the years.',
+        'Our commitment to quality has earned us recognition for delivering scalable, secure, and high-performing web solutions. With a focus on speed, UX, and SEO optimization, we ensure that every project exceeds industry standards.',
       bgImage: img3,
     },
     {
-      title: 'Harnessing the power of AI',
+      title: 'Harnessing AI for Business Growth',
       description:
-        'In 2023, Web Elo embarked on a groundbreaking journey, establishing its AI division with the vision to utilize the power of AI to revolutionize how institutions navigate the complexities of the modern market. Today, as a trusted industry leader in its realm of AI-powered innovation, Web Elo transforms the software landscape. From risk assessment to customer engagement, AI solutions empower our partners to stay ahead in an ever-evolving industry. We now cater to the diverse range of other sectors as well.',
+        'In 2023, Webelo expanded its vision by integrating AI-driven technologies to revolutionize digital experiences. From automation and predictive analytics to AI-powered marketing and business intelligence, we help companies navigate the complexities of the modern market. Our AI solutions are tailored to drive efficiency, engagement, and innovation across diverse industries.',
       bgImage: img4,
     },
   ];
@@ -42,10 +42,10 @@ const DomainExpertise = () => {
     <div className="max-w-7xl mx-auto p-8 space-y-10 bg-transparent">
       <div className="text-center">
         <h2 className="text-5xl font-bold text-white mb-4 text-shadow">
-          Domain <span className="text-blue-600">expertise</span>
+        Empowering Businesses with <span className="text-blue-600">Cutting-Edge Digital Solutions</span>
         </h2>
         <p className="text-white text-lg max-w-2xl mx-auto">
-          The company’s core focus since its inception has been the provision of cutting-edge technology solutions for the financial services industry and specifically the global asset finance and leasing sector.
+          TAt Webelo, we specialize in delivering innovative, high-performance web solutions tailored to businesses worldwide. From custom MERN stack development to SEO-driven growth strategies, our expertise ensures that your digital presence stands out in today’s competitive market.
         </p>
       </div>
 
@@ -83,7 +83,7 @@ const DomainExpertise = () => {
       {/* Text Section */}
       <div className="max-w-7xl mx-auto p-8 flex flex-col md:flex-row items-center">
         {/* Left Side - Heading */}
-        <div className="md:w-1/2 text-center md:text-left mb-6 md:mb-0">
+        {/* <div className="md:w-1/2 text-center md:text-left mb-6 md:mb-0">
           <h2 className="text-3xl md:text-4xl text-white mb-4 leading-tight">
             A WEB APP DEVELOPMENT<br />
             COMPANY WITH THE<br />
@@ -92,16 +92,16 @@ const DomainExpertise = () => {
               INNOVATE
             </span>
           </h2>
-        </div>
+        </div> */}
         {/* Right Side - Paragraph */}
-        <div className="md:w-1/2">
+        {/* <div className="md:w-1/2">
           <p className="text-white text-lg leading-relaxed">
             Transforming Technology into Meaningful Impact
           </p>
           <p className="text-white text-lg leading-relaxed mt-10">
             Our approach empowers us to create remarkable experiences that fuel growth and success for all involved. Together, let’s elevate your potential through the strength of digital transformation.
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,49 +1,49 @@
-// src/pages/Home.jsx
+
 import React from "react";
-import Methodology from "../components/Methodology";
-import LeadershipSection from "../components/LeadershipSection";
-import FAQ from "../components/FAQ";
-import IndustryExperts from "../components/IndustryExperts";
-import BusinessGrowthCard from "../components/BusinessGrowthCard";
-import ServicesWithOffer from "../components/ServicesWithOffer";
-import StatsOverview from "../components/StatsOverview";
-import AfterHero from "../components/AfterHero";
 import LeadershipCarousel from "../components/LeadershipCarousel";
 import Hero from "../components/Hero";
-import LogoSlider from "../components/LogoSlider";
 import TestimonialComponents from "../components/TestimonialComponent";
 import MyChatbot from "../components/MyChatbot";
 import PortfolioSlider from "../components/PortfolioSlider";
-// import MeetOurTeeml from "../components/MeetOurTeem";
-// import Testimonialscomponent from "../components/TestimonialComponent";
+import SplashCursor from "../components/SplashCursor";
+import Counter from "../components/Counter";
+import Sect from "../pages/Sect"
+import CircularGallery from "../components/CircularGallery";
+import FlowingMenu from '../components/FlowingMenu'
+import Weoffer from "../components/Weoffer";
+
+const demoItems = [
+  { text: 'Connect', image: 'https://picsum.photos/600/400?random=1' },
+  { text: 'With', image: 'https://picsum.photos/600/400?random=2' },
+  { text: 'Us', image: 'https://picsum.photos/600/400?random=3' },
+];
 export default function Home() {
 
   return (
     <>
 
-      <div className="">
 
-        <div>
-          <Hero />
-          <div className="fixed bottom-5 right-2 z-50">
-            <MyChatbot />
-          </div>
-          <BusinessGrowthCard />
-          <PortfolioSlider />
-          {/* <AfterHero /> */}
-          
-          <StatsOverview />
-          {/* <LogoSlider /> */}
-          
-          {/* <TestimonialsComponent /> */}
-          <TestimonialComponents />
-          <Methodology />
-          {/* <IndustryExperts /> */}
-          <LeadershipCarousel />
-          <ServicesWithOffer />
-          <FAQ />
-          {/* <MeetOurTeeml /> */}
+
+      <div>
+        <Hero />
+        <div className="fixed bottom-5 right-2 z-50">
+          <MyChatbot />
         </div>
+        <div style={{ height: '400px', position: 'relative' }}>
+          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+        </div>
+        <PortfolioSlider />
+        <Sect />
+        <Counter />
+        <LeadershipCarousel />
+        <TestimonialComponents />
+        <Weoffer />
+        <div style={{ height: '200px', position: 'relative' }}>
+          <FlowingMenu items={demoItems} />
+        </div>
+        <SplashCursor />
+        
+
       </div>
     </>
   );

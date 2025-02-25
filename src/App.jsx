@@ -10,28 +10,35 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Squares from "./components/Squares";
 
 function App() {
   return (
+    <>
+    
     <Router>
-        <Navbar />
+      <Navbar />
       
+
       <main>
-      <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/services" element={<Services />} />
-  <Route path="/about-us" element={<AboutUs />} />
-  <Route path="/portfolio" element={<Portfolio />} />
-  <Route path="/Contact" element={<Contact />} />
-  <Route path="/careers" element={<Careers />} />
-  <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Routes>
+          
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
 
 
-</Routes>
+        </Routes>
 
       </main>
       <Footer />
     </Router>
+    </>
   );
 }
 

@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import AboutHeader from "../components/AboutHeader";
-import { useState } from "react"; // Import useState for form handling
 
-// Modern Contact Form Component
 const ModernContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,6 +10,8 @@ const ModernContactForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,26 +31,47 @@ const ModernContactForm = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
-      // Form is valid, you can submit the data here
-      console.log("Form submitted:", formData);
-      // Reset form after submission
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      alert("Thank you for your message! We'll get back to you soon.");
+      setLoading(true);
+  
+      try {
+        const phoneNumber = "923010209887"; // Pakistan number (92 code zaroori hai)
+        const message = `Contact Form Submission from Webelo IT Solutions%0A
+        *Name:* ${formData.name}%0A
+        *Email:* ${formData.email}%0A
+        *Subject:* ${formData.subject}%0A
+        *Message:* ${formData.message}`;
+  
+        const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+  
+        // Secretly WhatsApp pe kholna
+        window.open(whatsappURL, "_blank");
+  
+        // User ko success message dikhana
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } catch (error) {
+        setErrors({ general: "An error occurred. Please try again later." });
+      }
+  
+      setLoading(false);
     } else {
       setErrors(newErrors);
     }
   };
+  
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Connect With US</h2>
+    <div className="max-w-md mx-auto mt-10 p-6 border border-gray-300 rounded-lg shadow-xl">
+      <h2 className="text-2xl font-bold mb-6 text-center text-white">Connect With Us</h2>
+      {isSubmitted && <p className="text-green-600 text-center mb-4">Message sent successfully!</p>}
+      {errors.general && <p className="text-red-600 text-center mb-4">{errors.general}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="name" className="block text-sm font-medium text-white">
             Name
           </label>
           <input
@@ -59,12 +80,12 @@ const ModernContactForm = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           />
           {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-sm font-medium text-white">
             Email
           </label>
           <input
@@ -73,12 +94,12 @@ const ModernContactForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           />
           {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
         </div>
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="subject" className="block text-sm font-medium text-white">
             Subject
           </label>
           <input
@@ -87,12 +108,12 @@ const ModernContactForm = () => {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           />
           {errors.subject && <p className="mt-1 text-sm text-red-600">{errors.subject}</p>}
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="message" className="block text-sm font-medium text-white">
             Message
           </label>
           <textarea
@@ -101,7 +122,7 @@ const ModernContactForm = () => {
             rows="4"
             value={formData.message}
             onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           ></textarea>
           {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
         </div>
@@ -109,8 +130,9 @@ const ModernContactForm = () => {
           <button
             type="submit"
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+            disabled={loading}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </div>
       </form>
@@ -121,9 +143,7 @@ const ModernContactForm = () => {
 export default function SSRMasonry() {
   return (
     <>
-      <AboutHeader title="Contact US" backgroundImage="./heroimg.png" />
-
-      {/* Modern Contact Form */}
+      <AboutHeader title="Contact Us" backgroundImage="./heroimg.png" />
       <ModernContactForm />
     </>
   );

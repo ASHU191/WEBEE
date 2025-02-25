@@ -1,8 +1,14 @@
 import React from 'react';
-
+import AboutHeader from "../components/AboutHeader";
 const PrivacyPolicy = () => {
   return (
+    <>
+    <AboutHeader
+    title="Privacy Policy"
+    backgroundImage="./heroimg.png" // Use your desired header image
+  />
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-transparent text-white shadow-md rounded-lg">
+      
       <h1 className="text-3xl font-bold mb-6 text-center">Privacy Policy</h1>
       <p className="text-lg">
         At Webelo, your privacy is of paramount importance to us. This privacy policy document outlines the types of personal data that is received and collected by Webelo and how it is used.
@@ -43,6 +49,7 @@ const PrivacyPolicy = () => {
         If we decide to change our privacy policy, we will post those changes on this page. Policy changes will apply only to information collected after the date of the change.
       </p>
     </div>
+    </>
   );
 };
 

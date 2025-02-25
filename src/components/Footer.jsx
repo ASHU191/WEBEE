@@ -7,7 +7,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#040c1c] text-white w-full py-10">
       <div className="container mx-auto px-4 py-10 md:py-12 lg:px-20">
-        <div className="flex flex-col md:flex-row justify-between gap-8">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between gap-8">
+          {/* Logo and Social Links */}
           <div className="flex flex-col items-center mb-6 md:mb-0">
             <RouterLink to="/" className="flex items-center text-white mb-4">
               <img src={logo} alt="Web Elo Logo" className="w-56 h-auto rounded-lg" />
@@ -20,7 +21,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col mb-6 md:mb-0">
+          {/* Services List */}
+          <div className="flex flex-col mb-6 md:mb-0 text-center md:text-left">
             <h6 className="mb-2 text-lg font-semibold">Services</h6>
             <ul className="space-y-1">
               {[
@@ -36,9 +38,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-2">
+          {/* Get In Touch */}
+          <div className="flex flex-col items-center mb-6 md:mb-0 text-center">
             <h6 className="mb-2 text-lg font-semibold">Get In Touch</h6>
-            <div className="flex flex-col mb-6 md:mb-0 gap-3">
+            <div className="flex flex-col gap-3">
               <p className="flex items-center gap-2 text-sm">
                 <Phone fontSize="small" />
                 <a href="tel:03010209887" className="hover:underline text-inherit">03010209887</a>
@@ -52,13 +55,14 @@ export default function Footer() {
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-10 pt-4 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-white/60 text-xs">
-            <p>2025 © <RouterLink to="/" className="text-[#9b4dca] hover:text-[#9b4dca]">Web Elo</RouterLink>. All rights reserved.</p>
-            <div className="flex gap-4 mt-4 sm:mt-0">
-              <RouterLink to="/career" className="text-white hover:text-[#9b4dca]">Career</RouterLink>
-              <RouterLink to="/privacy-policy" className="text-white hover:text-[#9b4dca]">Privacy Policy</RouterLink>
-            </div>
+        {/* Bottom Footer */}
+        <div className="mt-10 pt-4 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-white/60 text-xs">
+          <p>2025 © <RouterLink to="/" className="text-[#9b4dca] hover:text-[#9b4dca]">Web Elo</RouterLink>. All rights reserved.</p>
+          <div className="flex gap-4 mt-4 sm:mt-0">
+            {/* <RouterLink to="/careers" className="text-white hover:text-[#9b4dca]">Career</RouterLink> */}
+            <RouterLink to="/PrivacyPolicy" className="text-white hover:text-[#9b4dca]">Privacy Policy</RouterLink>
           </div>
         </div>
       </div>

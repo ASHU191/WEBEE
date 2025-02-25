@@ -6,6 +6,21 @@
 body {
     background-color:rgba(9,18,34,255); /* Dark blue color */
     margin: 0;
-    font-family: 'Arial', sans-serif; /* Optional: set your default font */
+    /* font-family: 'Elianto', sans-serif; */
+    font-family: 'Arial', sans-serif; 
   }
   
+  
+  
+  /* @font-face {
+    font-family: 'Elianto';
+    src: url('./assets/fonts/Elianto-Regular.otf') format('opentype'),
+         url('./assets/fonts/Elianto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .elianto-text {
+    font-family: 'Elianto', sans-serif;
+  }
+   */
