@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as RouterLink } from 'react-router-dom';
 import { Facebook, LinkedIn, Instagram, YouTube, LocationOn, Phone, Email } from "@mui/icons-material";
-import logo from "../assets/logo2.png"; // Adjust path if necessary
+import logo from "../assets/MainLogo.png"; // Adjust path if necessary
 
 export default function Footer() {
   return (
