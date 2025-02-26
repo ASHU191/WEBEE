@@ -1,29 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/logo2.png';
-
-const NavItem = ({ to, children }) => (
-  <motion.li
-    className="relative px-6 py-2"
-    whileHover={{ scale: 1.1, rotateY: 10, textShadow: "0px 0px 10px rgba(255, 255, 255, 0.8)" }}
-    whileTap={{ scale: 0.95 }}
-    transition={{ duration: 0.3 }}
-  >
-    <Link to={to} className="text-white font-semibold text-lg">
-      {children}
-    </Link>
-    <motion.div
-      className="absolute bottom-0 left-0 w-full h-0.5 bg-[#9b4dca] transform origin-left scale-x-0"
-      initial={{ scaleX: 0 }}
-      whileHover={{ scaleX: 1 }}
-      transition={{ duration: 0.3 }}
-    />
-  </motion.li>
-);
+import Logo from '../assets/MainLogo.png';
 
 const UniqueNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Disable body scroll when sidebar is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // Disable scroll
+    } else {
+      document.body.style.overflow = "auto"; // Enable scroll
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // Cleanup when component unmounts
+    };
+  }, [isOpen]);
 
   return (
     <nav className="absolute w-full z-10 p-4">
@@ -34,11 +28,11 @@ const UniqueNavbar = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 text-white">
-          <NavItem to="/">Home</NavItem>
-          <NavItem to="/about-us">About Us</NavItem>
-          <NavItem to="/portfolio">Portfolio</NavItem>
-          <NavItem to="/services">Services</NavItem>
-          <NavItem to="/Contact">Contact US</NavItem>
+          <li><Link to="/" className="text-white font-semibold text-lg">Home</Link></li>
+          <li><Link to="/about-us" className="text-white font-semibold text-lg">About Us</Link></li>
+          <li><Link to="/portfolio" className="text-white font-semibold text-lg">Portfolio</Link></li>
+          <li><Link to="/services" className="text-white font-semibold text-lg">Services</Link></li>
+          <li><Link to="/Contact" className="text-white font-semibold text-lg">Contact US</Link></li>
         </ul>
 
         {/* Hamburger Icon */}
@@ -46,13 +40,7 @@ const UniqueNavbar = () => {
           className="md:hidden text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <motion.path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -69,49 +57,41 @@ const UniqueNavbar = () => {
         </button>
       </div>
 
+      {/* Mobile Drawer Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-50"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
       {/* Mobile Drawer */}
       <motion.div
-        className="fixed inset-y-0 bg-white right-0 w-64 shadow-lg md:hidden"
+        className="fixed inset-y-0 right-0 w-64 shadow-lg md:hidden z-50 
+             bg-gradient-to-r from-[#1e1e1e] via-[#0a1f2d] to-[#0a2d4f]"
         initial={{ x: "100%" }}
         animate={{ x: isOpen ? 0 : "100%" }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
+        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
       >
         <div className="p-4">
+          {/* Close Button */}
           <button
-            className="text-gray-800 focus:outline-none"
+            className="text-white focus:outline-none" // Changed color to white
             onClick={() => setIsOpen(false)}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
+
+          {/* Sidebar Navigation */}
           <ul className="mt-8 space-y-6">
-            <motion.li whileHover={{ x: 10 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/" className="text-gray-800 font-semibold text-lg">Home</Link>
-            </motion.li>
-            <motion.li whileHover={{ x: 10 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/about-us" className="text-gray-800 font-semibold text-lg">About Us</Link>
-            </motion.li>
-            <motion.li whileHover={{ x: 10 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/portfolio" className="text-gray-800 font-semibold text-lg">Portfolio</Link>
-            </motion.li>
-            <motion.li whileHover={{ x: 10 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/services" className="text-gray-800 font-semibold text-lg">Services</Link>
-            </motion.li>
-            <motion.li whileHover={{ x: 10 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/Contact" className="text-gray-800 font-semibold text-lg">Contact</Link>
-            </motion.li>
+            <li><Link to="/" className="text-white font-semibold text-lg">Home</Link></li>
+            <li><Link to="/about-us" className="text-white font-semibold text-lg">About Us</Link></li>
+            <li><Link to="/portfolio" className="text-white font-semibold text-lg">Portfolio</Link></li>
+            <li><Link to="/services" className="text-white font-semibold text-lg">Services</Link></li>
+            <li><Link to="/Contact" className="text-white font-semibold text-lg">Contact</Link></li>
           </ul>
         </div>
       </motion.div>
