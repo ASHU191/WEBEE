@@ -48,7 +48,7 @@ export default function Footer() {
               </p>
               <p className="flex items-center gap-2 text-sm">
                 <Email fontSize="small" />
-                <a href="mailto:arsalanaftab191@gmail.com" className="hover:underline text-inherit">arsalanaftab191@gmail.com</a>
+                <a href="mailto:arsalanaftab191@gmail.com" className="hover:underline text-inherit">service@webelo.net</a>
               </p>
               <p className="flex items-center gap-2 text-sm">
                 <LocationOn fontSize="small" /> Karachi, Pakistan
