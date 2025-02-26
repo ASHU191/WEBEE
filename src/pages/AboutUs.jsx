@@ -4,6 +4,7 @@ import AboutHeader from "../components/AboutHeader";
 import DomainExpertise from "../components/DomainExpertise";
 import AdvantagesAbout from "../components/AdvantagesAbout";
 import AboutSection from "../components/AboutSection";
+import SplashCursor from "../components/SplashCursor";
 export default function AboutUs() {
   return <>
    <AboutHeader 
@@ -15,5 +16,6 @@ export default function AboutUs() {
 
 <DomainExpertise/>
 <AdvantagesAbout/>
+<SplashCursor />
   </>;
 }

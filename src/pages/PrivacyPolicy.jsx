@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutHeader from "../components/AboutHeader";
+import SplashCursor from '../components/SplashCursor';
 const PrivacyPolicy = () => {
   return (
     <>
@@ -49,6 +50,7 @@ const PrivacyPolicy = () => {
         If we decide to change our privacy policy, we will post those changes on this page. Policy changes will apply only to information collected after the date of the change.
       </p>
     </div>
+    <SplashCursor />
     </>
   );
 };

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from '@mui/material';
 import AboutHeader from '../components/AboutHeader';
+import SplashCursor from '../components/SplashCursor';
 
 const portfolioItems = [
   { title: "BMI-Interiors", description: "The Premier Interior Design & Fit-out Company in Dubai and UAE.", imageUrl: "./bmi.png", link: "https://www.bmiinterior.com/" },
@@ -82,6 +83,7 @@ export default function Portfolio() {
           )}
         </main>
       </div>
+      <SplashCursor />
     </>
   );
 }

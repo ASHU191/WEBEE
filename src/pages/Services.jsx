@@ -1,8 +1,10 @@
 import React from "react";
 import AboutHeader from "../components/AboutHeader";
+import SplashCursor from "../components/SplashCursor";
 
 const Services = () => {
   return (
+    <>
     <div className="flex flex-col gap-0 sm:gap-0 cursor-pointer">
       <AboutHeader
         title="Services"
@@ -91,6 +93,8 @@ const Services = () => {
         </div>
       </div>
     </div>
+    <SplashCursor />
+    </>
   );
 };
 

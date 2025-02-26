@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AboutHeader from "../components/AboutHeader";
+import SplashCursor from "../components/SplashCursor";
 
 const ModernContactForm = () => {
   const [formData, setFormData] = useState({
@@ -137,6 +138,7 @@ const ModernContactForm = () => {
         </div>
       </form>
     </div>
+
   );
 };
 
@@ -145,6 +147,7 @@ export default function SSRMasonry() {
     <>
       <AboutHeader title="Contact Us" backgroundImage="./heroimg.png" />
       <ModernContactForm />
+      <SplashCursor />
     </>
   );
 }
